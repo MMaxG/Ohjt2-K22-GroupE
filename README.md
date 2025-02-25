@@ -11,3 +11,4 @@ Ryhmämme jäsenet hyötyvät tästä saamalla kokemusta projektityylisestä ty�
 
 ![image](https://github.com/user-attachments/assets/6836595f-c2a2-4b89-89fe-55c6fcefec01)
 
+![image](https://github.com/user-attachments/assets/597846be-57b0-495c-a5d5-f92817515003)
