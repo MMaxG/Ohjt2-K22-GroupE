@@ -1,0 +1,602 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.header {
+  min-height: 100vh; /* Täyttää näytön */
+  width: 100%;
+  background: rgb(40,44,52);
+  background: radial-gradient(circle, rgba(40,44,52,1) 0%, rgba(23,25,29,1) 100%); /* https://cssgradient.io/ */
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+
+nav {
+  display: flex;
+  padding: 2% 6%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav img {
+  width: 150px;
+}
+
+.nav-links {
+  flex: 1;
+  text-align: right;
+}
+
+.nav-links ul li {
+    list-style: none;
+    display: inline-block;
+    padding: 8px 12px;
+    position: relative;
+}
+
+.nav-links ul li a {
+  color: #61dafb;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.nav-links ul li::after {
+  content: '';
+  width: 0%;
+  height: 2px;
+  background: #61dafb;
+  display: block;
+  margin: auto;
+  transition: 0.5s;
+}
+
+.nav-links ul li:hover::after {
+  width: 100%;
+}
+
+/* Links */
+
+.links {
+  flex: 1;
+  text-align: right;
+  list-style: none;
+  display: inline-block;
+  padding: 8px 12px;
+  position: relative;
+  color: #61dafb;
+  text-decoration: none; /* hides underline under link */
+  font-size: 13px;
+}
+
+.links::after {
+  content: '';
+  width: 0%;
+  height: 2px;
+  background: #61dafb;
+  display: block;
+  margin: auto;
+  transition: 0.5s;
+}
+
+.links:hover::after {
+  width: 100%;
+}
+
+
+
+.text-box {
+  width: 90%;
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* center of div */
+  text-align: center;
+}
+
+.text-box h1{
+  font-size: 62px;
+}
+
+.text-box {
+  margin: 10px 0 40px; /* top  left&right bottom*/
+  font-size: 14px;
+  color: #fff;
+}
+
+.hero-btn {
+  display: inline-block;
+  text-decoration: none;
+  color:#fff;
+  border: 1px solid #fff;
+  padding: 12px 34px;
+  font-size: 13px;
+  background: transparent;
+  position: relative;
+  cursor: pointer;
+}
+
+.hero-btn:hover{
+  border: 1px solid #f44336;
+  background: #f44336;
+  transition: 1s;
+}
+
+nav .fa { /* Hide fontawesome (mobile buttons) from larger screens, this also removes it from mobile, fix is below in media query*/
+  display: none;
+}
+
+@media(max-width: 700px) { /* Mobiilinäkymä, näytöt <= 700px*/
+
+  .text-box h1 {
+    font-size: 20px;
+  }
+
+  .nav-links ul li {
+    display:block
+  }
+
+  .nav-links { /* Linkit sivunäkymäksi, jotka voi piilottaa */
+    position: absolute;
+    background: #505257;
+    height: 100vh; /* Relative to 1% of the height of the viewport* */
+    width: 200px;
+    top: 0;
+    right: -200px; /* hidden by default */
+    text-align: left;
+    z-index: 2;
+    transition: .5s;
+  }
+
+  nav .fa{ /* Mobile FA buttons */
+    display: block; /* show FA buttons for mobile */
+    color:#fff;
+    margin: 10px;
+    font-size: 22px;
+    cursor: pointer;
+    height: 20px;
+  }
+
+  .nav-links ul { /* Mobile links */
+    padding: 30px;
+  }
+}
+
+/* Footer */
+
+.footer {
+  width: 100%;
+  text-align: center;
+  padding: 30px 0;
+  color:#505257;
+  background: radial-gradient(circle, rgb(24, 27, 32) 0%, rgb(19, 20, 26) 100%);
+}
+
+.footer h4 {
+  margin-bottom: 25px;
+  margin-top: 20px;
+  font-weight: 600;
+}
+
+/* Matkakohteet  */
+
+.sub-header{
+  height: 50vh;
+  width: 100%;
+  position: relative;
+  background-image: linear-gradient(rgba(4,9,30,0.7), rgba(4,9,30,0.7)),url(/src/images/silhouette.jpg);
+  background-position: center;
+  background-size: cover;
+  text-align: center;
+  color:#fff;
+}
+
+.sub-header h1{
+  margin-top: 50px;
+  font-size: 200%;
+}
+
+.matkakohteet {
+  width: 80%;
+  margin:auto;
+  padding-top: 80px;
+  padding-bottom: 50px;
+}
+
+.red-btn {
+  border: 1px solid #f44336;
+  background: transparent;
+  color:#f44336;
+}
+
+.red-btn:hover{
+  color:#fff;
+}
+
+.search {
+  padding-top: 5rem;
+  display: flex;
+}
+
+.search-container {
+  width: 80%;
+  margin: auto;
+  position: relative;
+}
+
+@media(max-width: 700px) { /* Mobiilinäkymä, näytöt <= 700px*/
+  .search-container {
+    width: 70%;
+  }
+}
+
+.search-input {
+  border-radius: 40px;
+  border: none;
+  box-shadow: 0 0 5px 2px #e1e5ee;
+  color:#767b91;
+  font-weight: 700;
+  padding: 15px 3.5rem;
+  position: relative;
+  overflow: hidden;
+  width: 50%;
+}
+
+.search-input[type=text]:focus {
+  outline: none !important;
+  border-color: #719ECE;
+  box-shadow: 0 0 10px #719ECE;
+}
+
+.fa-search {
+  position: relative;
+  height: 1.7rem;
+  padding-top: 10px;
+  color: #767b91;
+  cursor: pointer;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+.fa-search-magnify {
+  z-index: 99;
+  color:#7e7e7e;
+  right: calc(-25% + 43px);
+  top: 35px;
+}
+
+.fa-search-delete {
+  right: 2rem;
+  color: #c7ccdb;
+  left: calc(74% + 10px);
+  top: -46px;
+}
+
+.form {
+  padding-top: 50px;
+  display: inline-block;
+  width: 33%;
+}
+
+.form p{
+  font-weight: 500;
+  color: #7e7e7e;
+}
+
+.form-heading p{
+  font-size: x-large;
+  font-weight: 700;
+  color: #7e7e7e;
+}
+
+.form-group {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.form-group input, label, date{
+  padding: 12px;
+  border: none;
+  box-shadow: 0 0 10px #e1e5ee;
+  border-radius: 10px;
+  position: relative;
+  height: 1.7rem;
+  padding-top: 10px;
+  color: #767b91;
+  width: 100%;
+  cursor: pointer;
+}
+
+.form-group-cb {
+  padding: 12px;
+  padding-top: 25px;
+  position: relative;
+  right:40%;
+}
+
+.form-cb {
+  color: #f44336;
+}
+
+.form-group input[type=text]:focus{
+  outline: none !important;
+  border-color: #719ECE;
+  box-shadow: 0 0 10px #719ECE;
+}
+
+.nav-btn-container {
+  position: absolute;
+  bottom: 0px;
+  padding: 0 10% 0;
+  width: 80%;
+}
+
+.nav-btn-container nav {
+  position: relative;
+}
+
+.omat-nav-btn {
+  border: none;
+  background-color: #fff;
+  box-shadow: 0 4px 2px -2px gray;
+  bottom: -20px;
+  color: #7e7e7e;
+  font-weight: bolder;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  border-radius: 40px;
+  padding: 15px;
+  cursor: pointer;
+}
+
+.omat-nav-btn:hover {
+  background:#f44336;
+  color:#fff;
+  transition: .5s;
+}
+
+.omat-selaa-btn {
+  position: absolute;
+  width: 30%;
+  left: 18%;
+}
+
+.omat-lisaa-btn {
+  position: absolute;
+  right: 18%;
+  width: 30%;
+}
+
+@media(max-width: 700px) {
+  .omat-nav-btn {
+    width: 50%;
+  }
+
+  .omat-lisaa-btn {
+    right: 0;
+  }
+
+  .omat-selaa-btn {
+    left: 0;
+  }
+}
+
+.form-travel {
+  width: 100%;
+  padding: 10px;
+  border-color: #e1e5ee;
+  background-color: #fff;
+  border-radius: 5px;
+  color: #7e7e7e;
+  box-shadow: 0 4px 2px -2px gray;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.form-travel:focus{
+  outline: none !important;
+  border-color: #719ECE;
+  box-shadow: 0 0 10px #719ECE;
+}
+
+.form-travel button{
+  margin: 10px 0;
+}
+
+.travel-items {
+  padding-left: 0;
+}
+
+.travel-container {
+  text-align: justify;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.travel-wrapper {
+  width: 50%;
+  border-bottom: 20px solid #1f98f4;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.travel-wrapper h2 {
+  color: #fff;
+  background: #1f98f4;
+  padding: 10px 20px;
+  font-size: 20px;
+  font-weight: 700;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.travel-wrapper ul {
+  position: relative;
+  background: #fff;
+}
+
+.travel-wrapper ul div li {
+  list-style: none;
+  padding: 10px;
+  width: calc(100% - 20px);
+  border: none;
+  box-shadow: 0 0 10px #e1e5ee;
+  border-radius: 10px;
+  transition: transform 0.5s;
+}
+
+li.travel-item:not(:last-child) { 
+  margin-bottom: 15px;  
+}
+
+.travel-li-container {
+  display: flex;
+  align-items: center;
+}
+
+.travel-delete {
+  border: 1px solid #f44336;
+  background: transparent;
+  color:#f44336;
+  display: inline-block;
+  text-decoration: none;
+  padding: 12px 34px;
+  font-size: 13px;
+  background: transparent;
+  position: relative;
+  cursor: pointer;
+}
+
+.travel-delete:hover {
+  color:#fff;
+  border: 1px solid #f44336;
+  background: #f44336;
+  transition: 1s;
+}
+
+select > option[value=""] {
+  display: none;
+}
+
+.travel-wrapper ul:hover li{
+  opacity: 0.2;
+}
+
+.travel-wrapper ul li:hover {
+  transform: scale(1.1);
+  opacity: 1;
+  z-index: 100;
+  outline: none !important;
+  border-color: #719ECE;
+  box-shadow: 0 0 10px #719ECE;
+}
+
+.taulukko{
+  border: solid black 1px;
+  margin-top: 25px;
+  margin-bottom: 50px;
+}
+.travel-wrapper ul li span {
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  line-height: 20px;
+  background: #fff;
+  display: inline-block;
+  box-shadow: 0 0 10px #c7ccdb;
+  border-radius: 50%;
+  margin-right: 10%;
+  font-size: 12px;
+  font-weight: 600;
+  transform: translateY(-2px);
+}
+
+@media(max-width: 700px) { /* Mobiilinäkymä, näytöt <= 700px*/
+  .travel-wrapper {
+    width: 90%;
+  }
+}
+
+.travels-item {
+  text-decoration: none;
+  color:#282c34;
+}
+
+.search-form {
+  padding-top: 10px;
+}
+
+.search-form-group {
+  position: relative;
+  width: 100%;
+}
+
+.search-form-group input {
+  border-radius: 40px;
+  border: none;
+  box-shadow: 0 0 5px 2px #e1e5ee;
+  color:#767b91;
+  font-weight: 700;
+  padding: 15px 3.5rem;
+  position: relative;
+  overflow: hidden;
+  width: 15%;
+}
+
+.form-control {
+  margin-bottom: 25px;
+}
+
+@media(max-width: 700px) { /* Mobiilinäkymä, näytöt <= 700px*/
+  .search-form-group input {
+    width: 50%;
+  }
+
+
+}
+
+.story-btn-container {
+  justify-content: center;
+  display: flex;
+}
+
+.story-btn-submit {
+  padding-right: 250px;
+}
+
+.story-btn-delete {
+  width: 50px;
+}
+
+.story-delete-container {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.form-inner {
+  padding-bottom: 50px;
+}
